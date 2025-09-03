@@ -39,9 +39,12 @@ class ServiceCategoryController extends Controller
      */
     public function store(StoreServiceCategoryRequest $request)
     {
-        $data = $request -> validated();
+        $data = $request->validated();
 
-       $data['image'] = $request->file('image')->store('service-category', 'public');
+        $filename = time() . '.' . $request->file('image')->getClientOriginalExtension();
+        $request->file('image')->move(public_path('uploads/service-category'), $filename);
+
+        $data['image'] = 'uploads/service-category/' . $filename;
 
         $this->serviceCategoryRepository->createServiceCategory($data);
 
@@ -55,7 +58,7 @@ class ServiceCategoryController extends Controller
      */
     public function show(string $id)
     {
-         $category = $this->serviceCategoryRepository->getServiceCategoryById($id);
+        $category = $this->serviceCategoryRepository->getServiceCategoryById($id);
 
         return view('pages.admin.category.show', compact('category'));
     }
@@ -76,14 +79,14 @@ class ServiceCategoryController extends Controller
     public function update(UpdateServiceCategoryRequest $request, string $id)
     {
         $data = $request->validated();
-        
-        if ($request->image){
+
+        if ($request->image) {
             $data['image'] = $request->file('image')->store('assets/image', 'public');
         }
 
         $this->serviceCategoryRepository->updateServiceCategory($data, $id);
 
-          Swal::toast('Data Kategori Berhasil Diperbarui', 'success')->timerProgressBar();
+        Swal::toast('Data Kategori Berhasil Diperbarui', 'success')->timerProgressBar();
 
         return redirect()->route('admin.service-category.index');
     }
