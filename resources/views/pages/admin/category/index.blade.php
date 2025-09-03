@@ -27,7 +27,7 @@
                         <td>{{$loop->iteration}}</td>
                         <td>{{$category->name}}</td>
                         <td class="text-center">
-                            <img src="{{ asset('storage/' . $category->image) }}" width="100">
+                            <img src="{{ asset('storage/'.$category->image) }}" width="100">
                         </td>
                         <td>
                             <a href="{{route('admin.service-category.edit', $category->id)}}" class="btn btn-warning">Edit</a>
