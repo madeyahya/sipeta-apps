@@ -29,7 +29,7 @@
                         <td>{{$resident->user->email}}</td>
                         <td>{{$resident->user->name}}</td>
                         <td class="text-center">
-                            <img src="{{ $resident->avatar_url }}" alt="Avatar" width="100">
+                            <img src="{{ asset('storage/'.$category->image) }}" width="100">
                         </td>
                         <td>
                             <a href="{{route('admin.resident.edit', $resident->id)}}" class="btn btn-warning">Edit</a>
