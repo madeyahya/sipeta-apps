@@ -42,7 +42,8 @@ class ServiceCategoryController extends Controller
         $data = $request->validated();
 
         $path = $request->file('image')->store('service-category/image', 'public_uploads');
-        $data['image'] = 'uploads/' . $path; // simpan "uploads/service-category/image/xxxxx.png"
+        // simpan ke DB sebagai path RELATIF (tanpa 'uploads/' di depan):
+        $data['image'] = $path; // "service-category/image/xxxx.png"
 
         $this->serviceCategoryRepository->createServiceCategory($data);
 
