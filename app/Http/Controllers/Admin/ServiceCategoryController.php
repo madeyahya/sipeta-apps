@@ -41,7 +41,7 @@ class ServiceCategoryController extends Controller
     {
         $data = $request -> validated();
 
-        $data['image'] = $request->file('image')->store('assets/service-category/image', 'public');
+       $data['image'] = $request->file('image')->store('service-category', 'public');
 
         $this->serviceCategoryRepository->createServiceCategory($data);
 
