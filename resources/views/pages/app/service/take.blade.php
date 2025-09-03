@@ -3,17 +3,6 @@
 @section('title', 'Ambil Foto')
 
 @section('content')
-<div class="d-flex flex-column justify-content-center align-items-center min-vh-100">
-  <video id="video-webcam" autoplay playsinline muted
-         style="max-width:480px;width:100%;background:#000;border-radius:.5rem;"></video>
-
-  <div class="mt-3 d-flex gap-2">
-    <button type="button" id="btnStart" class="btn btn-outline-primary">Aktifkan Kamera</button>
-  </div>
-
-  {{-- Fallback: input file langsung buka kamera HP bila gUM gagal --}}
-  <input id="fileCamera" type="file" accept="image/*" capture="environment" class="d-none">
-</div>
 
 <script defer>
 (() => {
