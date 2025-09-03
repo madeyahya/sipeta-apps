@@ -39,8 +39,9 @@ return [
             'public_uploads' => [
                 'driver' => 'local',
                 'root' => public_path('uploads'),
-                'url'  => env('APP_URL') . '/uploads',
+                'url' => env('APP_URL') . '/uploads',
                 'visibility' => 'public',
+                'throw' => false, // opsional (Laravel 10/11), agar tak meledak saat file tak ada
             ],
         ],
 
