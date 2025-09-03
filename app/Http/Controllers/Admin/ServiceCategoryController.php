@@ -41,10 +41,8 @@ class ServiceCategoryController extends Controller
     {
         $data = $request->validated();
 
-        $filename = time() . '.' . $request->file('image')->getClientOriginalExtension();
-        $request->file('image')->move(public_path('uploads/service-category'), $filename);
-
-        $data['image'] = 'uploads/service-category/' . $filename;
+        $path = $request->file('image')->store('assets/service-category/image', 'public');
+        $data['image'] = $path;
 
         $this->serviceCategoryRepository->createServiceCategory($data);
 
