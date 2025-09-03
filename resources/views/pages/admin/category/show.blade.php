@@ -21,7 +21,7 @@
             <tr>
                 <td>Ikon</td>
                 <td>
-                    <img src="{{ Storage::url($category->image) }}" width="100" alt="image">
+                    <img src="{{ asset($category->image) }}" width="200">
                 </td>
             </tr>
         </table>
