@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use Illuminate\Support\facades\Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Interfaces\AuthRepositoryInterface;
 
 class AuthRepository implements AuthRepositoryInterface
