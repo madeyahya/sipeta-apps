@@ -21,9 +21,9 @@
             <tr>
                 <td>Ikon</td>
                 <td>
-                    @php use Illuminate\Support\Facades\Storage; @endphp
-                    <img src="{{ Storage::disk('public_uploads')->url($category->image) }}" width="200" alt="image">
-
+                    <img
+                        src="{{ \Illuminate\Support\Facades\Storage::url($category->image) }}"
+                        width="100" alt="image">
                 </td>
             </tr>
         </table>
