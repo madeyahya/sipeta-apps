@@ -18,10 +18,10 @@
                 <td>Nama</td>
                 <td>{{$category->name}}</td>
             </tr>
-             <tr>
+            <tr>
                 <td>Ikon</td>
                 <td>
-                    <img src="{{asset('storage/'.$category->image)}}" alt="image" width="200">
+                    <img src="{{ asset($category->image) }}" width="200">
                 </td>
             </tr>
         </table>
