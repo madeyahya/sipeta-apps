@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpKernel\Profiler\Profile;
 
 
+Route::get('/storage/{path}', function (string $path) {
+    $full = storage_path('app/public/'.$path);
+    abort_unless(\Illuminate\Support\Facades\File::exists($full), 404);
+    return response()->file($full);
+})->where('path', '.*');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');

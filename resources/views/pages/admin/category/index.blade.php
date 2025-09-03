@@ -27,9 +27,8 @@
                         <td>{{$loop->iteration}}</td>
                         <td>{{$category->name}}</td>
                         <td class="text-center">
-                            <img
-                                src="{{ \Illuminate\Support\Facades\Storage::url($category->image) }}"
-                                width="100" alt="image">
+                            <img src="{{ url('storage/'.$category->image) }}" width="100" alt="image">
+
                         </td>
                         <td>
                             <a href="{{route('admin.service-category.edit', $category->id)}}" class="btn btn-warning">Edit</a>
