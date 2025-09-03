@@ -13,9 +13,7 @@ function handleVideo(stream) {
     video.srcObject = stream;
 }
 
-function videoError(e) {
-    alert("Izinkan menggunakan webcam untuk demo!");
-}
+
 
 function takeSnapshot() {
     var canvas = document.createElement('canvas');
